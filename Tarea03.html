@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de cambio_Apaza</title>
+</head>
+<body>
+    <h1>CASA DE CAMBIO</h1>
+        <form>
+            <label>Moneda de origen:</label>
+            <select id="origen">
+                <option value="dolar">Dólar (USD)</option>
+                <option value="soles">Soles (PEN)</option>
+                <option value="euros">Euros (EUR)</option>
+            </select>
+            <br><br>
+            <label>Moneda de destino:</label>
+            <select id="destino">
+                <option value="dolar">Dólar (USD)</option>
+                <option value="soles">Soles (PEN)</option>
+                <option value="euros">Euros (EUR)</option>
+            </select>
+            <br><br>
+            <label>Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad">
+            <br><br>
+            <button type="button" onclick="calcularTotal()">Calcular</button>
+        </form>
+        <script>
+            function calcularTotal() {
+                var origen = document.getElementById("origen").value;
+                var destino = document.getElementById("destino").value;
+                var cantidad = document.getElementById("cantidad").value;
+                var total = 0;
+                if (origen == "dolar" && destino == "soles") {
+                    total = cantidad * 3.98;
+                } else if (origen == "dolar" && destino == "euros") {
+                    total = cantidad * 0.83;
+                } else if (origen == "soles" && destino == "dolar") {
+                    total = cantidad * 0.25;
+                } else if (origen == "soles" && destino == "euros") {
+                    total = cantidad * 0.21;
+                } else if (origen == "euros" && destino == "dolar") {
+                    total = cantidad * 1.20;
+                } else if (origen == "euros" && destino == "soles") {
+                    total = cantidad * 4.76;
+                }
+                alert("Total a recibir: " + total.toFixed(2) + " " + destino.toUpperCase());
+            }
+        </script>
+</body>
+</html>
